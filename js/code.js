@@ -1,4 +1,4 @@
-const urlBase = 'http://COP4331-5.com/LAMPAPI';
+const urlBase = 'LAMPAPI';
 const extension = 'php';
 
 let userId = 0;
@@ -13,12 +13,12 @@ function doLogin()
 	
 	let login = document.getElementById("loginName").value;
 	let password = document.getElementById("loginPassword").value;
-//	var hash = md5( password );
+	var hash = md5( password );
 	
 	document.getElementById("loginResult").innerHTML = "";
 
-	let tmp = {login:login,password:password};
-//	var tmp = {login:login,password:hash};
+	//let tmp = {login:login,password:password};
+	var tmp = {login:login,password:hash};
 	let jsonPayload = JSON.stringify( tmp );
 	
 	let url = urlBase + '/Login.' + extension;
@@ -46,7 +46,7 @@ function doLogin()
 
 				saveCookie();
 	
-				window.location.href = "color.html";
+				window.location.href = "Contacts.html";
 			}
 		};
 		xhr.send(jsonPayload);
@@ -183,3 +183,41 @@ function searchColor()
 	}
 	
 }
+
+function CreateAccount(){
+	//creates url to send XMLHttpRequest to and gets all account info from html inputs
+	let url = urlBase + '/CreateAccount.' + extension;
+	let FirstName = document.getElementById("FirstName").value;
+	let LastName = document.getElementById("LastName").value;
+	let Login = document.getElementById("Login").value;
+	let Password = document.getElementById("Password").value;
+	var HashedPassword = md5( Password );
+
+	//turns all account info into json
+	let tmp = {FirstName:FirstName, LastName:LastName, Login:Login, Password:HashedPassword};
+	let jsonPayload = JSON.stringify(tmp);
+
+	const xhr = new XMLHttpRequest();
+	xhr.open('POST', url, true);
+	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
+
+	xhr.onload = function(){
+		try{
+			console.log(xhr.response);
+			if(xhr.status === 200){
+				let jsonObject = JSON.parse(xhr.responseText);
+				if(jsonObject.message === "Account Created"){
+					window.location.href = "index.html";
+				}
+				else{
+					document.getElementById("CreateAccountError").innerHTML = jsonObject.error;
+				}
+			}
+		}
+		catch(err){
+			document.getElementById("CreateAccountError").innerHTML = err.message;
+		}
+	};
+	xhr.send(jsonPayload);
+}
+	

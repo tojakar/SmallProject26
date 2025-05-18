@@ -1,0 +1,37 @@
+<html>
+<head>
+
+    <title>Create An Account</title>
+	<script type="text/javascript" src="js/md5.js"></script>
+	<script type="text/javascript" src="js/code.js"></script>
+    <link href="css/styles.css" rel="stylesheet">	
+
+
+</head>
+<body>
+<h1 style="text-align: center;">Create An Account</h1>
+    
+<div id="CreateAccountDiv">
+    <form id="AccountCreationForm" onsubmit="CreateAccount(); return false">
+        <label for="FirstName">First Name:</label>
+        <input type="text" id="FirstName" name="FirstName" required>
+        <br>
+        <label for="LastName">Last Name:</label>
+        <input type="text" id="LastName" name="LastName" required>
+        <br>
+        <label for="Login">Login:</label>
+        <input type="text" id="Login" name="Login" required>
+        <br>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" required>
+        <br>
+        <button type="submit" id="CreateAccountButton" class="buttons">Submit</button>
+    </form>
+        <p id="CreateAccountError" name="CreateAccountError"></p>
+
+</div>
+
+
+
+</body>
+</html>
