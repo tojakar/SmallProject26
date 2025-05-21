@@ -1,12 +1,6 @@
 <?php
 	$inData = getRequestInfo();
 	
-	$FirstName = $inData["FirstName"];
-	$LastName = $inData["LastName"];
-	$Phone = $inData["Phone"];
-	$Email = $inData["Email"];
-	$UserID = $inData["UserID"];
-
 	$conn = new mysqli("localhost", "Brayden", "password", "COP4331");	
 	if ($conn->connect_error) 
 	{
@@ -15,12 +9,13 @@
 	else
 	{
 		$stmt = $conn->prepare("INSERT into Contacts (FirstName,LastName,Phone,Email,UserID) VALUES(?,?,?,?,?)");
-		$stmt->bind_param("ssssi", $FirstName, $LastName, $Phone, $Email, $UserID);
-		if($stmt->execute()){
+		$stmt->bind_param("ssssi", $inData["FirstName"], $inData["LastName"], $inData["Phone"], $inData["Email"], $inData["UserID"]);
+		try{
+			$stmt->execute();
 			returnWithInfo();
 		}
-		else{
-			returnWithError("Could Not Add Contact");
+		catch(Exception $e){
+			returnWithError($e->getMessage());
 		}
 		$stmt->close();
 		$conn->close();

@@ -1,12 +1,5 @@
 <?php
     $inData = getRequestInfo();
-    $FirstName = $inData["FirstName"];
-    $LastName = $inData["LastName"];
-    $Login = $inData["Login"];
-    $Password = $inData["Password"];
-	
-
-
 
 	$conn = new mysqli("localhost", "Brayden", "password", "COP4331");	
 	if($conn->connect_error)
