@@ -27,7 +27,7 @@
 				'LastName' => $row["LastName"],
 				'Phone' => $row["Phone"],
 				'Email' => $row["Email"],
-				'UserID' => $row["UserID"]
+				'ID' => $row["ID"]
 			);
 			$resultsArray[] = $searchResults;
 		}
@@ -64,7 +64,7 @@
 				'LastName' => "",
 				'Phone' => "",
 				'Email' => "",
-				'UserID' => 0,
+				'ID' => 0,
 				
 			),
 			'Error' => $err
