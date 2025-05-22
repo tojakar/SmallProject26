@@ -108,15 +108,22 @@ function doLogout()
 	window.location.href = "index.html";
 }
 
-function addColor()
+function addContact()
 {
-	let newColor = document.getElementById("colorText").value;
+	let newFirstName = document.getElementById("FirstNameContact").value;
+	let newLastName = document.getElementById("LastNameContact").value;
+	let newEmail = document.getElementById("EmailContact").value;
+	let newPhoneNum = document.getElementById("PhoneNumContact").value;
 	document.getElementById("colorAddResult").innerHTML = "";
+	if (newFirstName == "" || newLastName == "" || newEmail == "" || newPhoneNum == "")
+	{
+		document.getElementById("contactAddResult").innerHTML = "All fields are required. Please fill them all out.";
+		return;
+	}
+	document.getElementById("contactAddResult").innerHTML = "";
 
-	let tmp = {color:newColor,userId,userId};
-	let jsonPayload = JSON.stringify( tmp );
-
-	let url = urlBase + '/AddColor.' + extension;
+	let jsonPayload = '{"firstName" : "' +newFirstName + '", "lastName" : "' + newLastName + '", "email" : "' + newEmail + '", "phone" : "' + newPhoneNum + '", "userId" : "' + userID + '}';
+	let url = urlBase + '/AddContact.' + extension;
 	
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -127,14 +134,14 @@ function addColor()
 		{
 			if (this.readyState == 4 && this.status == 200) 
 			{
-				document.getElementById("colorAddResult").innerHTML = "Color has been added";
+				document.getElementById("contactAddResult").innerHTML = "Contact has been added";
 			}
 		};
 		xhr.send(jsonPayload);
 	}
 	catch(err)
 	{
-		document.getElementById("colorAddResult").innerHTML = err.message;
+		document.getElementById("contactAddResult").innerHTML = err.message;
 	}
 	
 }
@@ -142,7 +149,7 @@ function addColor()
 function searchColor()
 {
 	let srch = document.getElementById("searchText").value;
-	document.getElementById("colorSearchResult").innerHTML = "";
+	document.getElementById("contactSearchResult").innerHTML = "";
 	
 	let colorList = "";
 
@@ -179,7 +186,7 @@ function searchColor()
 	}
 	catch(err)
 	{
-		document.getElementById("colorSearchResult").innerHTML = err.message;
+		document.getElementById("contactSearchResult").innerHTML = err.message;
 	}
 	
 }
