@@ -114,7 +114,7 @@ function addContact()
 	let newLastName = document.getElementById("LastNameContact").value;
 	let newEmail = document.getElementById("EmailContact").value;
 	let newPhoneNum = document.getElementById("PhoneNumContact").value;
-	document.getElementById("colorAddResult").innerHTML = "";
+
 	if (newFirstName == "" || newLastName == "" || newEmail == "" || newPhoneNum == "")
 	{
 		document.getElementById("contactAddResult").innerHTML = "All fields are required. Please fill them all out.";
@@ -122,7 +122,7 @@ function addContact()
 	}
 	document.getElementById("contactAddResult").innerHTML = "";
 
-	let jsonPayload = '{"firstName" : "' +newFirstName + '", "lastName" : "' + newLastName + '", "email" : "' + newEmail + '", "phone" : "' + newPhoneNum + '", "userId" : "' + userID + '}';
+	let jsonPayload = '{"FirstName" : "' +newFirstName + '", "LastName" : "' + newLastName + '", "Email" : "' + newEmail + '", "Phone" : "' + newPhoneNum + '", "UserID" : "' + userId + '"}';
 	let url = urlBase + '/AddContact.' + extension;
 	
 	let xhr = new XMLHttpRequest();
