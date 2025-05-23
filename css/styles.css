@@ -1,11 +1,24 @@
 body 
 {
-    background-color: #707070;
+    background-image: url("../images/background.png");
+    background-repeat: no-repeat;
+    background-position: top center; 
+    background-size: 100% 100%;           
 }
 
 #title 
 {
-    font-size: 40px;
+    font-size: 80px;
+    width: 100%;
+    margin-top: 5%;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: #FFFFFF;
+}
+
+#loginTitle
+{
+    font-size: 60px;
     width: 100%;
     margin: 2% 5%;
     text-align: center;
@@ -13,13 +26,84 @@ body
     color: #FFFFFF;
 }
 
+#signUpTitle
+{
+    font-size: 60px;
+    width: 100%;
+    margin: 2% 5%;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    color: #FFFFFF;
+}
+
+.home-page-buttons
+{
+    display: flex;
+    gap: 50px; /* space between links */
+    justify-content: center; /* center horizontally */
+    align-items: center; /* vertically center if needed */
+}
+
+.signUp-Label
+{
+    font-size: 20;
+    font-family: 'Ubuntu', sans-serif;
+    color: #FFFFFF;
+}
+
+.signUpButton
+{
+    display: flex;
+    justify-content: center;
+}
+
+.loginButton
+{
+    display: flex;
+    justify-content: center;
+}
+
+
+#shark {
+    position: fixed;
+    bottom: 50px;      /* start off screen at bottom */
+    right: -10%;            /* start from left edge */
+    width: 300px;
+    animation: sharkArc 10s ease-in-out infinite;
+    cursor: pointer;
+    transform-origin: center;
+  }
+  
+@keyframes sharkArc 
+{
+    0% {
+        bottom: 50;
+        right: -20%;
+        opacity: 1;
+        
+    }
+    100% {
+        bottom: 50;
+        right: 110%;
+        opacity: 1;
+    }  
+}
+  
+  
 #loginDiv
 {
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1); /* semi-transparent for glass effect */
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); /* Glassmorphism */
+    color: #ffffff;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
     padding: 25px;
-    background-color: #b2b2b2;
 }
 
 #loggedInDiv
@@ -42,17 +126,30 @@ body
 
 .buttons
 {
+    text-decoration: none;
     font-size: 30px;
     border-radius: 25px;
     width: 50%;
-    margin-left: 25%;
+    margin-top: 10%;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .buttons:hover{
-    background-color: #00d5124f;
+    text-decoration: underline;
     color: #FFFFFF;
-    opacity: 50%;
+    opacity: 90%;
+}
+
+#CreateAccountDiv
+{
+    width: 400px;
+    margin: 100px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1); /* semi-transparent for glass effect */
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); /* Glassmorphism */
+    color: #ffffff;
 }
 
 #loginName
@@ -78,6 +175,7 @@ input[type="text"],input[type="password"]{
     width: 80%;
     margin-left: 10%;
     margin-bottom: 2%;
+    font-size: 25;
     font-family: 'Ubuntu', sans-serif;
 }
 
