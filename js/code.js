@@ -196,7 +196,7 @@ function CreateAccount(){
 	let url = urlBase + '/CreateAccount.' + extension;
 	let FirstName = document.getElementById("FirstName").value;
 	let LastName = document.getElementById("LastName").value;
-	let Login = document.getElementById("Login").value;
+	let Login = document.getElementById("Username").value;
 	let Password = document.getElementById("Password").value;
 	var HashedPassword = md5( Password );
 
