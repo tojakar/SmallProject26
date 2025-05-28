@@ -1,0 +1,82 @@
+openapi: 3.0.4
+info:
+  title: Contact manager API
+  version: 1.0.0
+  description: API for searching, deleting, editing, and adding contacts. It also contains endpoints for creating an account and logging in.
+servers:
+  - url: http://group26.xyz/LAMPAPI/
+paths:
+  /CreateAccount:
+    post:
+      summary: Creates Account
+      requestBody:
+        required: true
+        content: 
+          application/json: 
+            schema:
+              type: object
+              required:
+                - FirstName
+                - LastName
+                - Login
+                - Password 
+              properties:
+                FirstName:
+                  type: string
+                LastName:
+                  type: string
+                Login:
+                  type: string
+                Password:
+                  type: string
+
+      responses:
+        '200':
+          description: Account created successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                  message:
+                    type: string
+  /Login:
+    post:
+        summary: Logs you into account
+        requestBody:
+          required: true
+          content: 
+            application/json: 
+              schema:
+                type: object
+                required:
+                  - Login
+                  - Password 
+                properties:
+                  Login:
+                    type: string
+                  Password:
+                    type: string
+
+        responses:
+          '200':
+            description: Account created successfully
+            content:
+              application/json:
+                schema:
+                  type: object
+                  properties:
+                    id:
+                      type: string
+                    firstName:
+                      type: string
+                    lastName:
+                      type: string
+                    error:
+                      type: string
+  /AddContact:
+  /SearchContacts:
+  /EditContact:
+  /DeleteContact:

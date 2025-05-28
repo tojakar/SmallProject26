@@ -12,9 +12,9 @@
 	} 
 	else
 	{
-		$stmt = $conn->prepare("SELECT * FROM Contacts where UserID=? and (FirstName like ? OR LastName like ?)");
+		$stmt = $conn->prepare("SELECT * FROM Contacts where UserID=? AND ID > ? AND (FirstName like ? OR LastName like ?) LIMIT 2");
 		$searchTerm = "%" . $inData["Search"] . "%";
-		$stmt->bind_param("sss", $inData["UserID"], $searchTerm, $searchTerm);
+		$stmt->bind_param("siss", $inData["UserID"], $inData["PrevID"], $searchTerm, $searchTerm);
 		$stmt->execute();
 		
 		$result = $stmt->get_result();
