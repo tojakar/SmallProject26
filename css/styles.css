@@ -66,6 +66,7 @@ body
 
 #shark {
     position: fixed;
+    top: 20px;
     bottom: 50px;      /* start off screen at bottom */
     right: -10%;            /* start from left edge */
     width: 300px;
@@ -138,7 +139,7 @@ body
 
 .buttons:hover{
     text-decoration: underline;
-    color: #0D5C63;
+    background-color: #0D5C63;
     color: #78CDD7;
     opacity: 90%;
 }
