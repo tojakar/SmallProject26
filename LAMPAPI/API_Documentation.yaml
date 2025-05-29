@@ -107,6 +107,48 @@ paths:
               message:
                 type: string
   /SearchContacts:
+    post:
+      summary: searchs for contacts
+      parameters:
+        - in: body
+          name: input
+          required: true
+          schema:
+            type: object
+            required:
+              - Search
+              - UserID
+              - PrevID
+            properties:
+              Search:
+                type: string
+              UserID:
+                type: string
+              PrevID:
+                type: string
+      responses:
+        '200':
+          description: successfully added contact
+          schema:
+            type: object
+            properties:
+              Results:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    FirstName:
+                      type: string
+                    LastName:
+                      type: string
+                    Phone:
+                      type: string
+                    Email:
+                      type: string
+                    ID:
+                      type: integer
+              Error:
+                type: string
   /EditContact:
     post:
       summary: Edits a contact
