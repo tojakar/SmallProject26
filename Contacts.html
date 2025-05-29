@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>COP 4331 LAMP Stack Demo</title>
+	<title>Contacts Page</title>
 	<script type="text/javascript" src="js/code.js"></script>
     <link href="css/styles.css" rel="stylesheet">	
     <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -29,10 +29,12 @@
 	<br />
 
 	<input type="text" id="searchText" placeholder="Contact To Search For"/>
-	<button type="button" id="searchColorButton" class="buttons" onclick="searchContacts();"> Search for Contact </button><br />
+	<button type="button" id="searchContactButton" class="buttons" onclick="searchContacts();"> Search for Contact </button><br />
 	<span id="contactSearchResult"></span>
-	
-	<p id="ContactsList"></p>
+	<button type="button" id="editContactButton" class="buttons" onclick="EditContact();"> Edit Contact </button><br />
+	<span id="contactEditResult"></span>
+	<p id="contactList">
+	</p><br /><br />
 
 	<input type="text" id="FirstNameContact" placeholder="Type Contact's First Name">
 	<input type="text" id="LastNameContact" placeholder="Type Contact's Last Name'">
@@ -41,5 +43,6 @@
 	<button type="button" id="addContactButton" class="buttons" onclick="addContact();"> Add Contact </button><br />
 	<span id="contactAddResult"></span>
 </div>
+
 </body>
 </html>
