@@ -131,12 +131,15 @@ body
     border-radius: 25px;
     width: 50%;
     margin-top: 10%;
+    background-color: #78CDD7;
+    color:#0D5C63;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .buttons:hover{
     text-decoration: underline;
-    color: #FFFFFF;
+    color: #0D5C63;
+    color: #78CDD7;
     opacity: 90%;
 }
 
@@ -235,23 +238,4 @@ select{
     margin-bottom: 1%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
-}
-
-.topnav {
-    background-color: #0D5C63;
-    overflow: hidden;
-}
-
-.topnav a {
-    float: left;
-    color: #FFFFFA;
-    text-align: center;
-    padding: 15px 20px;
-    text-decoration: none;
-    font-size: 17px;
-}
-
-.topnav a:hover{
-    background-color: #FFFFFA;
-    color: black;
 }
