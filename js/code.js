@@ -185,13 +185,13 @@ function searchContacts()
 }
 
 function EditContact(){
-	document.getElementById("contactEditResult").innerHTML = "";
-	let firstName;
-	let lastName;
-	let email;
-	let phoneNum;
+	let firstName = document.getElementById("FirstNameContact").value;
+	let lastName = document.getElementById("LastNameContact").value;
+	let email = document.getElementById("EmailContact").value;
+	let phoneNum = document.getElementById("PhoneNumContact").value;
 	let jsonPayload = '{"FirstName" : "' +firstName + '", "LastName" : "' + lastName + '", "Email" : "' + email + '", "Phone" : "' + phoneNum + '", "UserID" : "' + userId + '"}';
-	let url = urlBase + '/EditContact.' + extension;
+
+	let updatedContact = {firstName, lastName, email, phoneNum, userId};
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -212,7 +212,6 @@ function EditContact(){
 		document.getElementById("contactEditResult").innerHTML = err.message;
 	}
 }
-
 function CreateAccount(){
 	//creates url to send XMLHttpRequest to and gets all account info from html inputs
 	let url = urlBase + '/CreateAccount.' + extension;
