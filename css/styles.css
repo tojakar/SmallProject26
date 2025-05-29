@@ -63,6 +63,13 @@ body
     justify-content: center;
 }
 
+#logo{
+  position: relative;
+  top: 30px;
+  width: 100px;
+  left: 50%;
+}
+
 
 #shark {
     position: fixed;
@@ -138,7 +145,7 @@ body
 }
 
 .buttons:hover{
-    text-decoration: underline;
+    text-decoration: none;
     background-color: #0D5C63;
     color: #78CDD7;
     opacity: 90%;
