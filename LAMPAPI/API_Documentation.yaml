@@ -1,82 +1,172 @@
-openapi: 3.0.4
+swagger: '2.0'
 info:
   title: Contact manager API
   version: 1.0.0
   description: API for searching, deleting, editing, and adding contacts. It also contains endpoints for creating an account and logging in.
-servers:
-  - url: http://group26.xyz/LAMPAPI/
+host: group26.xyz
+basePath: /LAMPAPI
 paths:
   /CreateAccount:
     post:
       summary: Creates Account
-      requestBody:
-        required: true
-        content: 
-          application/json: 
-            schema:
-              type: object
-              required:
-                - FirstName
-                - LastName
-                - Login
-                - Password 
-              properties:
-                FirstName:
-                  type: string
-                LastName:
-                  type: string
-                Login:
-                  type: string
-                Password:
-                  type: string
-
+      parameters:
+        - in: body
+          name: input
+          required: true
+          schema:
+            type: object
+            required:
+              - FirstName
+              - LastName
+              - Login
+              - Password 
+            properties:
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Login:
+                type: string
+              Password:
+                type: string
       responses:
         '200':
           description: Account created successfully
-          content:
-            application/json:
-              schema:
-                type: object
-                properties:
-                  error:
-                    type: string
-                  message:
-                    type: string
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              message:
+                type: string
   /Login:
     post:
-        summary: Logs you into account
-        requestBody:
+      summary: Logs you into account
+      parameters:
+        - in: body
+          name: input
           required: true
-          content: 
-            application/json: 
-              schema:
-                type: object
-                required:
-                  - Login
-                  - Password 
-                properties:
-                  Login:
-                    type: string
-                  Password:
-                    type: string
-
-        responses:
-          '200':
-            description: Account created successfully
-            content:
-              application/json:
-                schema:
-                  type: object
-                  properties:
-                    id:
-                      type: string
-                    firstName:
-                      type: string
-                    lastName:
-                      type: string
-                    error:
-                      type: string
+          schema:
+            type: object
+            required:
+              - Login
+              - Password 
+            properties:
+              Login:
+                type: string
+              Password:
+                type: string
+      responses:
+        '200':
+          description: Account created successfully
+          schema:
+            type: object
+            properties:
+              id:
+                type: integer
+              firstName:
+                type: string
+              lastName:
+                type: string
+              error:
+                type: string
   /AddContact:
+    post:
+      summary: Logs you into account
+      parameters:
+        - in: body
+          name: input
+          required: true
+          schema:
+            type: object
+            required:
+              - FirstName
+              - LastName
+              - Phone
+              - Email
+              - UserID 
+            properties:
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Phone:
+                type: string
+              Email:
+                type: string
+              UserID:
+                type: integer
+      responses:
+        '200':
+          description: successfully added contact
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              message:
+                type: string
   /SearchContacts:
   /EditContact:
+    post:
+      summary: Edits a contact
+      parameters:
+        - in: body
+          name: input
+          required: true
+          schema:
+            type: object
+            required:
+              - FirstName
+              - LastName
+              - Phone
+              - Email
+              - UserID 
+              - ID
+            properties:
+              FirstName:
+                type: string
+              LastName:
+                type: string
+              Phone:
+                type: string
+              Email:
+                type: string
+              UserID:
+                type: integer
+              ID:
+                type: integer
+      responses:
+        '200':
+          description: successfully added contact
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              message:
+                type: string
   /DeleteContact:
+    post:
+      summary: Edits a contact
+      parameters:
+        - in: body
+          name: input
+          required: true
+          schema:
+            type: object
+            required:
+              - ID
+            properties:
+              ID:
+                type: integer
+      responses:
+        '200':
+          description: successfully deleted contact
+          schema:
+            type: object
+            properties:
+              error:
+                type: string
+              message:
+                type: string
