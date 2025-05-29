@@ -146,49 +146,42 @@ function addContact()
 
 }
 
-function searchContact()
+function searchContacts()
 {
 	let srch = document.getElementById("searchText").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
-
+	let PrevID = 0;
 	let contactList = "";
 
-	let tmp = {search:srch,userId:userId};
+	let tmp = {Search:srch,UserID:userId,PrevID:PrevID};
 	let jsonPayload = JSON.stringify( tmp );
 
-	let url = urlBase + '/SearchContact.' + extension;
+	let url = urlBase + '/SearchContacts.' + extension;
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function()
-		{
-			if (this.readyState == 4 && this.status == 200)
-			{
-				document.getElementById("contactSearchResult").innerHTML = "Contact(s) has been retrieved";
-				let jsonObject = JSON.parse( xhr.responseText );
-
-				for( let i=0; i<jsonObject.results.length; i++ )
-				{
-					contactList += jsonObject.results[i];
-					if( i < jsonObject.results.length - 1 )
-					{
-						contactList += "<br />\r\n";
+	xhr.onload = function(){
+		try{
+			if(xhr.status === 200){
+				console.log(xhr.responseText);
+				let jsonObject = JSON.parse(xhr.responseText);
+				if(jsonObject.Error !== ""){
+					console.log("error in json")
+				}
+				else{
+					for(let searchResults of jsonObject.Results){
+						let contact = '<p style="text-align: center;">'+ searchResults.FirstName + '|' + searchResults.LastName + '|' + searchResults.Phone + '|' + searchResults.Email + '</p>';	
+						document.getElementById("ContactsList").innerHTML += contact;
 					}
 				}
-
-				document.getElementsByTagName("p")[0].innerHTML = contactList;
 			}
-		};
-		xhr.send(jsonPayload);
+		}
+		catch(err){
+			console.log("error");
+		}
 	}
-	catch(err)
-	{
-		document.getElementById("contactSearchResult").innerHTML = err.message;
-	}
-
+	xhr.send(jsonPayload);
 }
 
 function EditContact(){
