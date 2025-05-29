@@ -131,12 +131,15 @@ body
     border-radius: 25px;
     width: 50%;
     margin-top: 10%;
+    background-color: #78CDD7;
+    color:#0D5C63;
     font-family: 'Ubuntu', sans-serif;
 }
 
 .buttons:hover{
     text-decoration: underline;
-    color: #FFFFFF;
+    color: #0D5C63;
+    color: #78CDD7;
     opacity: 90%;
 }
 
