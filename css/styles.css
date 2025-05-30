@@ -116,34 +116,20 @@ body
 
 #loggedInDiv
 {
-    width: 400px;
-    margin: 100px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1); /* semi-transparent for glass effect */
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px); /* Glassmorphism */
-    color: #ffffff;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
     padding: 25px;
+    background-color: #b2b2b2;
 }
 
 #accessUIDiv
 {
-    width: 400px;
-    margin: 100px auto;
-    padding: 30px;
-    background: rgba(255, 255, 255, 0.1); /* semi-transparent for glass effect */
-    border-radius: 20px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(10px); /* Glassmorphism */
-    color: #ffffff;
     font-size: 30px;
     width: 70%;
     margin-left: 15%;
     padding: 25px;
+    background-color: #b2b2b2;
 }
 
 .buttons
