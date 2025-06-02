@@ -248,4 +248,8 @@ function CreateAccount(){
 	};
 	xhr.send(jsonPayload);
 }
-	
+
+window.onload = function () {
+  readCookie();        // Loads user info and updates the username
+  searchContacts();    // Loads all contacts by default
+};
