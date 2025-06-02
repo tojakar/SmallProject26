@@ -6,8 +6,10 @@ info:
   description: API for searching, deleting, editing, and adding contacts. It also contains endpoints for creating an account and logging in.
 host: group26.xyz
 basePath: /LAMPAPI
+schemes:
+  - http
 paths:
-  /CreateAccount:
+  /CreateAccount.php:
     post:
       summary: Creates Account
       parameters:
@@ -40,7 +42,7 @@ paths:
                 type: string
               message:
                 type: string
-  /Login:
+  /Login.php:
     post:
       summary: Logs you into account
       parameters:
@@ -71,7 +73,7 @@ paths:
                 type: string
               error:
                 type: string
-  /AddContact:
+  /AddContact.php:
     post:
       summary: Logs you into account
       parameters:
@@ -107,7 +109,7 @@ paths:
                 type: string
               message:
                 type: string
-  /SearchContacts:
+  /SearchContacts.php:
     post:
       summary: searchs for contacts
       parameters:
@@ -150,7 +152,7 @@ paths:
                       type: integer
               Error:
                 type: string
-  /EditContact:
+  /EditContact.php:
     post:
       summary: Edits a contact
       parameters:
@@ -189,7 +191,7 @@ paths:
                 type: string
               message:
                 type: string
-  /DeleteContact:
+  /DeleteContact.php:
     post:
       summary: Edits a contact
       parameters:
