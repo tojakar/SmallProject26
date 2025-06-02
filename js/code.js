@@ -150,6 +150,7 @@ function searchContacts()
 {
 	let srch = document.getElementById("searchText").value;
 	document.getElementById("contactSearchResult").innerHTML = "";
+  	document.getElementById("ContactsList").innerHTML = "";
 	let PrevID = 0;
 	let contactList = "";
 
