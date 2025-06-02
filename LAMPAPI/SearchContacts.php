@@ -22,7 +22,7 @@
 		$searchTerm = "%" . $inData["Search"] . "%";
 
 		if (trim($inData["Search"]) == "") {
-			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=?");
+			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? AND ID > ? AND (FirstName LIKE ? OR LastName LIKE ?) LIMIT 5");
 			$stmt->bind_param("s", $inData["UserID"]);
 		} else {
 			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? AND ID > ? AND (FirstName LIKE ? OR LastName LIKE ?) LIMIT 2");

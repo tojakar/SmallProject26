@@ -147,7 +147,7 @@ body
 .buttons:hover{
     text-decoration: none;
     background-color: #0D5C63;
-    color: #78CDD7;
+    color: #fff;
     opacity: 90%;
 }
 
@@ -248,6 +248,8 @@ select{
     color: #95060a;
 }
 
+
+
 /* Contacts Page */
 
 #loggedInDivContacts {
@@ -255,7 +257,7 @@ select{
     border-radius: 10px;
     color: #fff;
     width: 80%;
-    height: 60%;
+    height: 70%;
     margin: 0 auto;
     padding: 10px;
 
@@ -264,14 +266,14 @@ select{
     gap: 15px;
 }
 
-.first-row {
+.contactsRow {
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
 }
 
-#userNameContacts {
+#textContacts {
     font-size: 25px;
     width: 200%;
     margin: 0;
@@ -287,12 +289,6 @@ select{
     margin: 0;
 }
 
-.second-row {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
 #searchBar {
     padding: 8px;
     font-size: 16px;
@@ -304,100 +300,27 @@ select{
 }
 
 #searchButton {
-    padding: 8px 12px;
+    padding: 8px 16px;
     font-size: 16px;
-    border-radius: 10px;
-    background-color: #1B9AAA;
-    color: white;
+    border-radius: 20px;
+    background-color: lightblue;
     border: none;
     cursor: pointer;
     margin: 0;
 }
 
-.contact-entry 
+.add-contact-form 
 {
     display: flex;
-    justify-content: space-between;
-    background-color: #117A8B;
-    padding: 10px;
-    border-radius: 8px;
-    margin-bottom: 8px;
 }
 
-.contact-name, .contact-phone 
-{
-    font-size: 18px;
-}
-.contact {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    font-size: 22px;
+.add-contact-form input {
+    width: 300px;
+    margin: 0;
 }
 
-.contact .contact-name {
-    flex: 1;
-    font-weight: bold;
-}
-
-.contact .contact-details {
-    flex: 2;
-    text-align: left;
-    padding-left: 20px;
-}
-
-/* Action Buttons Container */
-.action-buttons {
-    display: flex;
-    gap: 10px;
-}
-
-/* Shared Styling for Edit, Delete, Add */
-.edit, .delete, .add {
-    font-size: 20px;
-    padding: 8px 12px;
-    border-radius: 8px;
-    border: none;
-    cursor: pointer;
-    color: white;
-}
-
-/* Individual Button Colors */
-.edit {
-    background-color: #44a1a0;
-}
-
-.delete {
-    background-color: #44a1a0;
-}
-
-.add {
-    background-color: #44a1a0;
-}
-
-/* Hover Effects */
-.edit:hover, .delete:hover, .add:hover {
-    opacity: 0.8;
-}
-
-/* Add Contact Form Styling */
-.add-contact {
+.contactList {    
     display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    margin-top: 20px;
-    padding-top: 10px;
-    border-top: 2px solid #fff;
-}
-
-/* Add Contact Input Fields */
-.add-contact input {
-    font-size: 20px;
-    padding: 10px;
-    border-radius: 8px;
-    border: none;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive columns */
+    gap: 15px; 
 }
