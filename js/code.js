@@ -257,7 +257,7 @@ function BeginEditingContact(button){
 
 	for(let i = 0; i < 4; i++){
 		let text = cols[i].textContent;
-		cols[i].innerHTML = `<input type="text" value="${text}" style="width: 100%; box-sizing: border-box; font-size: inherit; padding: 6px; border: none;">`;
+		cols[i].innerHTML = `<input type="text" value="${text}" id="Contact_Input">`;
 
 	}
 	button.textContent = "Save";

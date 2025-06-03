@@ -281,6 +281,7 @@ select{
     font-family: 'Ubuntu', sans-serif;
     color: #E0FFFF;
     font-size: 18px;
+    
 }
 
 #ContactsTable th {
@@ -291,14 +292,32 @@ select{
     text-transform: uppercase;
     border-bottom: 2px solid rgba(255, 255, 255, 0.2);
 }
-.contact-cell {
+.contact_cell {
     text-align: center;
-    padding: 12px;
-    background-color: rgba(255, 255, 255, 0.08);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .action-cell {
     text-align: center;
-    padding: 12px;
+    padding: 10px;
+    white-space: nowrap;
+}
+
+.Contact_Input{
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    font-size: inherit;
+    border: none;
+    background: transparent;
+    color: inherit;
+    text-align: center;
+}
+
+#ContactsTable th:nth-child(6),
+#ContactsTable td:nth-child(6),
+#ContactsTable th:nth-child(7),
+#ContactsTable td:nth-child(7) {
+    width: 120px; 
+    white-space: nowrap;
 }
