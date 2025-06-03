@@ -263,49 +263,56 @@ function BeginEditingContact(button){
 	button.onclick = () => EditContact(button);
 }
 
-function EditContact(button){
+function EditContact(button) {
 	let row = button.closest("tr");
-	let cols = row.querySelectorAll("td")
+	let cols = row.querySelectorAll("td");
 
-	for(let i = 0; i < 4; i++){
-		let input = cols[i].querySelector("input");
-		let text = input.value;
-		cols[i].innerHTML = text;
+	// Retrieve values from inputs
+	let firstName = cols[0].querySelector("input").value.trim();
+	let lastName = cols[1].querySelector("input").value.trim();
+	let phoneNum = cols[2].querySelector("input").value.trim();
+	let email = cols[3].querySelector("input").value.trim();
 
-	}
+	// Revert cells back to text
+	cols[0].innerHTML = firstName;
+	cols[1].innerHTML = lastName;
+	cols[2].innerHTML = phoneNum;
+	cols[3].innerHTML = email;
 
-	let firstName = cols[0].textContent;
-	let lastName = cols[1].textContent;
-	let phoneNum = cols[2].textContent;
-	let email = cols[3].textContent;
-	let ID = cols[4].textContent
+	let ID = cols[4].textContent.trim();  // ID is in the hidden <td>
+
+	// Reset button
 	button.textContent = "Edit";
 	button.onclick = () => BeginEditingContact(button);
 
+	// Send updated data to server
 	let url = urlBase + '/EditContact.' + extension;
-	let tmp = {FirstName:firstName, LastName:lastName, Phone:phoneNum, Email:email,  UserID:userId, ID:ID,};
+	let tmp = {
+		FirstName: firstName,
+		LastName: lastName,
+		Phone: phoneNum,
+		Email: email,
+		UserID: userId,
+		ID: parseInt(ID)
+	};
 	let jsonPayload = JSON.stringify(tmp);
-	
-	'{"FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "Email" : "' + email + '", "Phone" : "' + phoneNum + '", "UserID" : "' + userId + ', "ID:"' + ID + '"}';
-
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
-	try
-	{
-		xhr.onreadystatechange = function()
-		{
-			if (this.readyState === 4 && this.status === 200)
-			{
-				console.log(xhr.responseText);
-				document.getElementById("contactEditResult").innerHTML = "Edits have been saved!";
+
+	try {
+		xhr.onreadystatechange = function () {
+			if (this.readyState === 4) {
+				if (this.status === 200) {
+					document.getElementById("contactEditResult").innerHTML = "Edits have been saved!";
+				} else {
+					document.getElementById("contactEditResult").innerHTML = "Failed to save changes.";
+				}
 			}
 		};
 		xhr.send(jsonPayload);
-	}
-	catch(err)
-	{
+	} catch (err) {
 		document.getElementById("contactEditResult").innerHTML = err.message;
 	}
 }
