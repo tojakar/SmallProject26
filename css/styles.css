@@ -274,3 +274,31 @@ select{
   text-align: left;   
   font-size: 16px;    
 }
+
+#ContactsTable {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: 'Ubuntu', sans-serif;
+    color: #E0FFFF;
+    font-size: 18px;
+}
+
+#ContactsTable th {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 14px;
+    color: #A0F8F8;
+    text-align: center;
+    text-transform: uppercase;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+.contact-cell {
+    text-align: center;
+    padding: 12px;
+    background-color: rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.action-cell {
+    text-align: center;
+    padding: 12px;
+}

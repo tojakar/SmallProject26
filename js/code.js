@@ -168,13 +168,14 @@ function searchContacts()
 
 	if (!document.getElementById("ContactsTableBody")) {
     document.getElementById("ContactsList").innerHTML = `
-      <table style="margin: auto; border-collapse: collapse; width: 90%; font-size: 20px; justify-content: center; table-layout: fixed;">
+      <table id="ContactsTable">
         <thead>
           <tr>
             <th>First Name</th>
             <th>Last Name</th>
             <th>Phone</th>
             <th>Email</th>
+			<th style="display:none;"></th>
             <th>Edit</th>
 			<th>Delete</th>
           </tr>
@@ -196,13 +197,13 @@ function searchContacts()
 					for(let searchResults of jsonObject.Results){
 						let row = document.createElement("tr");
 						row.innerHTML = `
-										<td style="text-align: center; padding: 8px;">${searchResults.FirstName}</td>
-										<td style="text-align: center; padding: 8px;">${searchResults.LastName}</td>
-										<td style="text-align: center; padding: 8px;">${searchResults.Phone}</td>
-										<td style="text-align: center; padding: 8px;">${searchResults.Email}</td>
-										<td style="display: none;" >${searchResults.ID}</td>
-										<td style="display: flex; justify-content:center;"> <button class="buttons" onclick="BeginEditingContact(this)" style = "font-size:14px; width: 100px; ">Edit</button>  </td>
- 									  <td style="text-align: center;"> <button class="buttons" onclick="deleteContact(${searchResults.ID},this)" style = "font-size:14px; width: 100px; ">Delete</button> </td>
+										<td class="contact_cell" style="text-align: center; padding: 8px;">${searchResults.FirstName}</td>
+										<td class="contact_cell" style="text-align: center; padding: 8px;">${searchResults.LastName}</td>
+										<td class="contact_cell" >${searchResults.Phone}</td>
+										<td class="contact_cell" >${searchResults.Email}</td>
+										<td style="display:none;""  >${searchResults.ID}</td>
+										<td class="contact_button"> <button class="buttons" onclick="BeginEditingContact(this)" style = "font-size:14px; width: 100px; ">Edit</button>  </td>
+ 									  <td class="contact_button"> <button class="buttons" onclick="deleteContact(${searchResults.ID},this)" style = "font-size:14px; width: 100px; ">Delete</button> </td>
 									`;
 						ContactsTableBody.appendChild(row)
 					}
