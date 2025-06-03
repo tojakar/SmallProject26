@@ -202,7 +202,7 @@ function searchContacts()
 										<td style="text-align: center; padding: 8px;">${searchResults.Email}</td>
 										<td style="display: none;" >${searchResults.ID}</td>
 										<td style="display: flex; justify-content:center;"> <button class="buttons" onclick="BeginEditingContact(this)" style = "font-size:14px; width: 100px; ">Edit</button>  </td>
- 									  <td style="text-align: center;"> <button class="buttons" onclick="deleteContact(${searchResults.ID})" style = "font-size:14px; width: 100px; ">Delete</button> </td>
+ 									  <td style="text-align: center;"> <button class="buttons" onclick="deleteContact(${searchResults.ID},this)" style = "font-size:14px; width: 100px; ">Delete</button> </td>
 									`;
 						ContactsTableBody.appendChild(row)
 					}
@@ -216,13 +216,19 @@ function searchContacts()
 	xhr.send(jsonPayload);
 }
 
-function deleteContact(ID)
+function deleteContact(ID, button)
 {
+
 	let tmp = {ID:ID};
 	let jsonPayload = JSON.stringify(tmp);
 	let url = urlBase + '/DeleteContact.' + extension;
-
 	let xhr = new XMLHttpRequest();
+
+	//removes deleted contacts
+	let row = button.closest("tr");
+	row.remove();
+
+	
 	xhr.open("POST", url, true);
 	
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
