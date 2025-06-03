@@ -168,7 +168,7 @@ function searchContacts()
 
 	if (!document.getElementById("ContactsTableBody")) {
     document.getElementById("ContactsList").innerHTML = `
-      <table style="margin: auto; border-collapse: collapse; width: 90%;">
+      <table style="margin: auto; border-collapse: collapse; width: 90%; font-size: 20px; justify-content: center;">
         <thead>
           <tr>
             <th>First Name</th>
@@ -200,8 +200,8 @@ function searchContacts()
 										<td style="text-align: center; padding: 8px;">${searchResults.LastName}</td>
 										<td style="text-align: center; padding: 8px;">${searchResults.Phone}</td>
 										<td style="text-align: center; padding: 8px;">${searchResults.Email}</td>
-										<td> <button class="buttons" onclick="EditContact()">Edit</button>  </td>
-    									<td> <button class="buttons" onclick="deleteContact(${searchResults.ID})">Delete</button> </td>
+										<td style="display: flex; justify-content:center;"> <button class="buttons" onclick="EditContact()" style = "font-size:14px; width: 100px; ">Edit</button>  </td>
+ 									  <td style="text-align: center;"> <button class="buttons" onclick="deleteContact(${searchResults.ID})" style = "font-size:14px; width: 100px; ">Delete</button> </td>
 									`;
 						ContactsTableBody.appendChild(row)
 					}
