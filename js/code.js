@@ -168,7 +168,7 @@ function searchContacts()
 
 	if (!document.getElementById("ContactsTableBody")) {
     document.getElementById("ContactsList").innerHTML = `
-      <table style="margin: auto; border-collapse: collapse; width: 90%; font-size: 20px; justify-content: center;">
+      <table style="margin: auto; border-collapse: collapse; width: 90%; font-size: 20px; justify-content: center; table-layout: fixed;">
         <thead>
           <tr>
             <th>First Name</th>
@@ -256,7 +256,7 @@ function BeginEditingContact(button){
 
 	for(let i = 0; i < 4; i++){
 		let text = cols[i].textContent;
-		cols[i].innerHTML = `<input type="text" value="${text}" name="LastName">`;
+		cols[i].innerHTML = `<input type="text" value="${text}" style="width: 100%; box-sizing: border-box; font-size: inherit; padding: 6px; border: none;">`;
 
 	}
 	button.textContent = "Save";
@@ -270,9 +270,8 @@ function EditContact(button){
 	for(let i = 0; i < 4; i++){
 		let input = cols[i].querySelector("input");
 		let text = input.value;
-		
 		cols[i].innerHTML = text;
-		//cols[i].innerHTML = `<td style="text-align: center; padding: 8px;">${text}</td>`;
+
 	}
 
 	let firstName = cols[0].textContent;
