@@ -109,23 +109,27 @@ body
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     backdrop-filter: blur(10px); /* Glassmorphism */
     color: #ffffff;
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
+
 }
 
 
-.buttons
-{
+.buttons {
     text-decoration: none;
-    font-size: 30px;
+    font-size: 24px;
     border-radius: 25px;
     width: 50%;
+    padding: 14px 24px;
     margin-top: 16px;
     background-color: #78CDD7;
-    color:#0D5C63;
+    color: #0D5C63;
     font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    display: inline-block;
+    text-align: center;
 }
 
 .buttons:hover{
@@ -134,6 +138,33 @@ body
     color: #78CDD7;
     opacity: 90%;
 }
+
+.UIbuttons {
+    text-decoration: none;
+    font-size: 24px;
+    border-radius: 15px;
+    width: 300px;
+    height: 60px;
+    padding: 0 20px;
+    box-sizing: border-box;
+    background-color: #78CDD7;
+    color: #0D5C63;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.UIbuttons:hover{
+    text-decoration: none;
+    background-color: #0D5C63;
+    color: #78CDD7;
+    opacity: 90%;
+}
+
 
 #CreateAccountDiv
 {

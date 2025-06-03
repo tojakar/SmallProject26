@@ -17,24 +17,24 @@
 	
 </head>
 <body>
-	<div id="ContactsPage">
+
 
 	<div id="loggedInDiv">
 		<h1 id="title" style="text-align: center;">Megalo Manager</h1>
 	</div>
 
-	<hr>
+	<div id="ContactsPage">
 	<div id="UserBar">
 		<div id="userName"></div>
 		<button type="button" id="logoutButton" class="buttons" onclick="doLogout();"> Log Out </button>
 	</div>
 
-	<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px;flex-wrap: wrap;">
-		<label for="searchText">Search For Contact:</label>
-		<input type="text" id="searchText" placeholder="Contact To Search For"/>
-		<div style="text-align: center; width: auto;">
-		<button type="button" id="searchContactButton" class="buttons" onclick="searchContacts();"> Search for Contact </button><br />
-		</div>
+	<hr>
+
+	<div style="display: flex; align-items: center; gap: 10px; margin-bottom: 20px; flex-wrap: nowrap; width: 100%;">
+		<label for="searchText" style="white-space: nowrap;">Search For Contact:</label>
+		<input type="text" id="searchText" placeholder="Contact To Search For" style="flex: 1; padding: 8px 12px; font-size: 18px; border-radius: 10px; border: 1px solid #ccc; height: 60px; box-sizing: border-box;" />
+		<button type="button" id="searchContactButton" class="UIbuttons" onclick="searchContacts();">Search</button>
 	</div>
 	<span id="contactSearchResult"></span>
 	<p id="ContactsList"></p>

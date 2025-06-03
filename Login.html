@@ -12,9 +12,11 @@
 	<h1 id="title">Login Below:</h1>
 
 	<div id="loginDiv">
-		<span id="inner-title">PLEASE LOG IN</span>
 		<span id="loginError" class="error-message" style="display: none;">* Incorrect username or password *</span>
+		<label class="signUp-Label" for="loginName">Username:</label>
 		<input type="text" id="loginName" placeholder="Username" /><br />
+
+		<label class="signUp-Label" for="loginpassword">Password:</label>
 		<input type="password" id="loginPassword" placeholder="Password"/><br />
 		<div class="loginButton">
 			<button type="button" id="loginButton" class="buttons" onclick="doLogin();"> Login </button>
