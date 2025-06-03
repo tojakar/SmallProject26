@@ -196,11 +196,12 @@ function searchContacts()
 					for(let searchResults of jsonObject.Results){
 						let row = document.createElement("tr");
 						row.innerHTML = `
-										<td id='FirstName'style="text-align: center; padding: 8px;">${searchResults.FirstName}</td>
+										<td style="text-align: center; padding: 8px;">${searchResults.FirstName}</td>
 										<td style="text-align: center; padding: 8px;">${searchResults.LastName}</td>
 										<td style="text-align: center; padding: 8px;">${searchResults.Phone}</td>
 										<td style="text-align: center; padding: 8px;">${searchResults.Email}</td>
-										<td style="display: flex; justify-content:center;"> <button class="buttons" onclick="EditContact()" style = "font-size:14px; width: 100px; ">Edit</button>  </td>
+										<td style="display: none;" >${searchResults.ID}</td>
+										<td style="display: flex; justify-content:center;"> <button class="buttons" onclick="BeginEditingContact(this)" style = "font-size:14px; width: 100px; ">Edit</button>  </td>
  									  <td style="text-align: center;"> <button class="buttons" onclick="deleteContact(${searchResults.ID})" style = "font-size:14px; width: 100px; ">Delete</button> </td>
 									`;
 						ContactsTableBody.appendChild(row)
@@ -223,6 +224,7 @@ function deleteContact(ID)
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
+	
 	xhr.setRequestHeader("Content-type", "application/json; charset=UTF-8");
 	try
 	{
@@ -242,14 +244,45 @@ function deleteContact(ID)
 }
 
 
-function EditContact(){
-	let firstName = document.getElementById("FirstNameContact").value;
-	let lastName = document.getElementById("LastNameContact").value;
-	let email = document.getElementById("EmailContact").value;
-	let phoneNum = document.getElementById("PhoneNumContact").value;
-	let jsonPayload = '{"FirstName" : "' +firstName + '", "LastName" : "' + lastName + '", "Email" : "' + email + '", "Phone" : "' + phoneNum + '", "UserID" : "' + userId + '"}';
+function BeginEditingContact(button){
+	let row = button.closest("tr");
+	let cols = row.querySelectorAll("td")
 
-	let updatedContact = {firstName, lastName, email, phoneNum, userId};
+	for(let i = 0; i < 4; i++){
+		let text = cols[i].textContent;
+		cols[i].innerHTML = `<input type="text" value="${text}" name="LastName">`;
+
+	}
+	button.textContent = "Save";
+	button.onclick = () => EditContact(button);
+}
+
+function EditContact(button){
+	let row = button.closest("tr");
+	let cols = row.querySelectorAll("td")
+
+	for(let i = 0; i < 4; i++){
+		let input = cols[i].querySelector("input");
+		let text = input.value;
+		
+		cols[i].innerHTML = text;
+		//cols[i].innerHTML = `<td style="text-align: center; padding: 8px;">${text}</td>`;
+	}
+
+	let firstName = cols[0].textContent;
+	let lastName = cols[1].textContent;
+	let phoneNum = cols[2].textContent;
+	let email = cols[3].textContent;
+	let ID = cols[4].textContent
+	button.textContent = "Edit";
+	button.onclick = () => BeginEditingContact(button);
+
+	let url = urlBase + '/EditContact.' + extension;
+	let tmp = {FirstName:firstName, LastName:lastName, Phone:phoneNum, Email:email,  UserID:userId, ID:ID,};
+	let jsonPayload = JSON.stringify(tmp);
+	
+	'{"FirstName" : "' + firstName + '", "LastName" : "' + lastName + '", "Email" : "' + email + '", "Phone" : "' + phoneNum + '", "UserID" : "' + userId + ', "ID:"' + ID + '"}';
+
 
 	let xhr = new XMLHttpRequest();
 	xhr.open("POST", url, true);
@@ -260,6 +293,7 @@ function EditContact(){
 		{
 			if (this.readyState === 4 && this.status === 200)
 			{
+				console.log(xhr.responseText);
 				document.getElementById("contactEditResult").innerHTML = "Edits have been saved!";
 			}
 		};
