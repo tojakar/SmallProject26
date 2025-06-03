@@ -116,6 +116,12 @@ function addContact()
 	let newEmail = document.getElementById("EmailContact").value;
 	let newPhoneNum = document.getElementById("PhoneNumContact").value;
 
+	document.getElementById("FirstNameContact").value = "";
+	document.getElementById("LastNameContact").value = "";
+	document.getElementById("EmailContact").value = "";
+	document.getElementById("PhoneNumContact").value = "";
+	
+
 	if (newFirstName == "" || newLastName == "" || newEmail == "" || newPhoneNum == "")
 	{
 		document.getElementById("contactAddResult").innerHTML = "All fields are required. Please fill them all out.";
