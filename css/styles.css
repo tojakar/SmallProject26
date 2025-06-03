@@ -36,6 +36,7 @@ body
     color: #FFFFFF;
 }
 
+
 .home-page-buttons
 {
     display: flex;
@@ -114,23 +115,6 @@ body
     padding: 25px;
 }
 
-#loggedInDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
-}
-
-#accessUIDiv
-{
-    font-size: 30px;
-    width: 70%;
-    margin-left: 15%;
-    padding: 25px;
-    background-color: #b2b2b2;
-}
 
 .buttons
 {
@@ -138,7 +122,7 @@ body
     font-size: 30px;
     border-radius: 25px;
     width: 50%;
-    margin-top: 10%;
+    margin-top: 16px;
     background-color: #78CDD7;
     color:#0D5C63;
     font-family: 'Ubuntu', sans-serif;
@@ -213,10 +197,8 @@ input[type="text"],input[type="password"]{
 }
 
 #userName{
-    display: inline-block;
-    width: 80%;
-    margin-left: 10%;
-    text-align: center;
+    font-size: 25;
+    
 }
 
 #logoutButton{
@@ -232,18 +214,32 @@ select{
     font-family: 'Ubuntu', sans-serif;
 }
 
-#colorSearchResult{
-    display: none;
+#ContactsPage{
+    font-size: 30px;
+    width: 70%;
+    margin-left: 15%;
+    padding: 25px;
+    background: rgba(255, 255, 255, 0.1); /* semi-transparent for glass effect */
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(20px); /* Glassmorphism */
+    color: #ffffff;
 }
 
-#colorAddResult{
-    display: inline-block;
-    font-size: 0.8em;
-    width: 90%;
-    text-align: center;
-    margin-left: 5%;
-    margin-top: 2%;
-    margin-bottom: 1%;
-    font-family: 'Ubuntu', sans-serif;
-    color: #95060a;
+
+#logoutButton{
+    
+    margin: 0;
+}
+
+#addContactList{
+    display: flex;
+}
+
+#UserBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;   
+  font-size: 16px;    
 }
