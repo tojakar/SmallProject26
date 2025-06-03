@@ -18,25 +18,15 @@
       <h1 id="title">Edit the contact how you wish</h1>
 
 
-      <div id="CreateAccountDiv">
-            <label class="signUp-Label" for="FirstName">First Name:</label>
-            <input type="text" id="FirstName" name="FirstName" placeholder="New First Name" required>
-            <br>
-            <label class="signUp-Label" for="LastName">Last Name:</label>
-            <input type="text" id="LastName" name="LastName" placeholder="New Last Name" required>
-            <br>
-            <label class="signUp-Label" for="Login">Phone Number:</label>
-            <input type="text" id="Username" name="Username" placeholder="New PhoneNumber" required>
-            <br>
-            <label class="signUp-Label" for="Password">Email:</label>
-            <input type="password" id="Password" name="Password" placeholder="New Email" required>
-            <br>
-            
-            <div class="signUpButton">
-                  <button type = "button" id = "editContactButton" class = "buttons" onclick="editContact();"> Save Changes </button> <br />
-                  <span id = "editContactResult"></span>
-            </div>
-            
-      </div>
+      <div id = "editUIDiv">
+      <br />
+      <input type="text" id = "editFirstName" placeholder = "Change Contact's First Name">
+      <input type="text" id = "editlastName" placeholder = "Change Contact's Last Name">
+      <input type="text" id = "editEmail" placeholder = "Change Contact's Email Address">
+      <input type="text" id = "editPhoneNum" placeholder = "Change Contact's Phone Number">
+      <button type = "button" id = "editContactButton" class = "buttons" onclick="editContact();"> Save Changes </button> <br />
+      <span id = "editContactResult"></span>
+
+
 </body>
 </html>

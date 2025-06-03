@@ -147,7 +147,7 @@ body
 .buttons:hover{
     text-decoration: none;
     background-color: #0D5C63;
-    color: #fff;
+    color: #78CDD7;
     opacity: 90%;
 }
 
@@ -246,81 +246,4 @@ select{
     margin-bottom: 1%;
     font-family: 'Ubuntu', sans-serif;
     color: #95060a;
-}
-
-
-
-/* Contacts Page */
-
-#loggedInDivContacts {
-    background-color: #0D5C63;
-    border-radius: 10px;
-    color: #fff;
-    width: 80%;
-    height: 70%;
-    margin: 0 auto;
-    padding: 10px;
-
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.contactsRow {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-#textContacts {
-    font-size: 25px;
-    width: 200%;
-    margin: 0;
-}
-
-#logoutButtonContacts {
-    padding: 8px 16px;
-    font-size: 16px;
-    border-radius: 20px;
-    background-color: lightblue;
-    border: none;
-    cursor: pointer;
-    margin: 0;
-}
-
-#searchBar {
-    padding: 8px;
-    font-size: 16px;
-    width: 200%;
-    flex-grow: 1;
-    border-radius: 10px;
-    border: none;
-    margin: 0;
-}
-
-#searchButton {
-    padding: 8px 16px;
-    font-size: 16px;
-    border-radius: 20px;
-    background-color: lightblue;
-    border: none;
-    cursor: pointer;
-    margin: 0;
-}
-
-.add-contact-form 
-{
-    display: flex;
-}
-
-.add-contact-form input {
-    width: 300px;
-    margin: 0;
-}
-
-.contactList {    
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsive columns */
-    gap: 15px; 
 }

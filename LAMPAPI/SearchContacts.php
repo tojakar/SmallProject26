@@ -12,23 +12,10 @@
 	} 
 	else
 	{
-		// $stmt = $conn->prepare("SELECT * FROM Contacts where UserID=? AND ID > ? AND (FirstName like ? OR LastName like ?) LIMIT 2");
-		// $searchTerm = "%" . $inData["Search"] . "%";
-		// $stmt->bind_param("siss", $inData["UserID"], $inData["PrevID"], $searchTerm, $searchTerm);
-		// $stmt->execute();
-
-		// the follow returns all contacts when searchbar is empty
-		// return a specific contact when search for
+		$stmt = $conn->prepare("SELECT * FROM Contacts where UserID=? AND (FirstName like ? OR LastName like ?)");
 		$searchTerm = "%" . $inData["Search"] . "%";
-
-		if (trim($inData["Search"]) == "") {
-			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? AND ID > ? AND (FirstName LIKE ? OR LastName LIKE ?) LIMIT 5");
-			$stmt->bind_param("s", $inData["UserID"]);
-		} else {
-			$stmt = $conn->prepare("SELECT * FROM Contacts WHERE UserID=? AND ID > ? AND (FirstName LIKE ? OR LastName LIKE ?) LIMIT 2");
-			$stmt->bind_param("siss", $inData["UserID"], $inData["PrevID"], $searchTerm, $searchTerm);
-		}
-
+		$stmt->bind_param("iss", $inData["UserID"], $searchTerm, $searchTerm);
+		$stmt->execute();
 		
 		$result = $stmt->get_result();
 		
